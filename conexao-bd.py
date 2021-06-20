@@ -5,6 +5,18 @@ meudb = mysql.connector.connect(
     password="828706",
     database="dbteste"
 )
-meucursor=meudb.cursor()
-meucursor.execute()
+meucursor = meudb.cursor()
+
+sql = "INSERT INTO cliente (name, address) VALUES (%s, %s)"
+val = ("Renato", "Rua do carmo")
+meucursor.execute(sql, val)
+
+meudb.commit()
+
+print(meucursor.rowcount, "record inserted.")
+
+#for x in meucursor:
+    # print(meucursor)
+
+
 
