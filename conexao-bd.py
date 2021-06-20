@@ -7,16 +7,18 @@ meudb = mysql.connector.connect(
 )
 meucursor = meudb.cursor()
 
-sql = "INSERT INTO cliente (name, address) VALUES (%s, %s)"
-val = ("Renato", "Rua do carmo")
-meucursor.execute(sql, val)
+#sql = "INSERT INTO cliente (name, address) VALUES (%s, %s)"
+#val = ("Renato", "Rua do carmo")
+meucursor.execute("SELECT * FROM cliente")
+meuresultado= meucursor.fetchall()
 
-meudb.commit()
 
-print(meucursor.rowcount, "record inserted.")
+#meudb.commit()
 
-#for x in meucursor:
-    # print(meucursor)
+#print(meucursor.rowcount, "record inserted.")
+
+for x in meuresultado:
+     print(x)
 
 
 
